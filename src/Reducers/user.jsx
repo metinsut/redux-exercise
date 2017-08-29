@@ -1,20 +1,15 @@
-const user = (state = {
-  number: 30
-}, action) => {
+const initialState = { number: 30 }
+
+const user = (state = initialState, action) => {
   switch (action.type) {
     case 'ARTTIR':
-    console.log(action.payload);
-    console.log(state.number);
-      return [
-        state.number += action.payload
-      ]
+      return Object.assign({}, state, {
+        number: state.number + action.payload
+      })
     case 'AZALT':
-      return [
-        state = {
-          ...state,
-          number: state.number - action.payload
-        }
-      ]
+      return Object.assign({}, state, {
+        number: state.number - action.payload
+      })
     default:
       return state
   }

@@ -8,7 +8,7 @@ class Numbers extends React.Component {
 
   render() {
     return (
-      <h1>{this.props.user.number}</h1>
+      <h1>{this.props.user}</h1>
     )
   }
 }
@@ -16,7 +16,7 @@ class Numbers extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user.number
   };
 };
 

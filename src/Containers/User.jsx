@@ -4,15 +4,28 @@ import { ARTAN, AZALAN } from '../Actions';
 
 
 class User extends Component {
-  render(dispatch) {
+  render() {
     return (
       <div className="User">
-        <button onClick={ () => this.props.dispatch(ARTAN(1)) }>ARTTIR</button>
-        <button onClick={ () => this.props.dispatch(AZALAN(1)) }>AZALT</button>
+        <button onClick={ () => this.props.art(1) }>ARTTIR</button>
+        <button onClick={ () => this.props.az(1) }>AZALT</button>
       </div>
     );
   }
 }
 
 
-export default connect()(User);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    art: (number) => {
+      dispatch(ARTAN(number))
+    },
+    az: (number) => {
+      dispatch(AZALAN(number))
+    },
+    
+  };
+};
+
+export default connect(null,mapDispatchToProps)(User);

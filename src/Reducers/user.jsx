@@ -1,20 +1,16 @@
-const user = (state = {
-  number: 30
-}, action) => {
+const user = (state = { number: 30 }, action) => {
+
   switch (action.type) {
     case 'ARTTIR':
-    console.log(action.payload);
-    console.log(state.number);
-      return [
-        state.number += action.payload
-      ]
+          return {
+            number: state.number + action.payload
+          }
+      break;
     case 'AZALT':
-      return [
-        state = {
-          ...state,
+      return  {
           number: state.number - action.payload
         }
-      ]
+      break;
     default:
       return state
   }

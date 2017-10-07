@@ -2,6 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Numbers extends React.Component {
+  componentWillMount() {
+
+  }
+
   render() {
     return (
       <h1>{this.props.user.number}</h1>
@@ -10,10 +14,11 @@ class Numbers extends React.Component {
 }
 
 
-const showNumber = (state) => {
+const mapStateToProps = (state) => {
   return {
     user: state.user
   };
-}
+};
 
-export default connect(showNumber) (Numbers);
+
+export default connect(mapStateToProps)(Numbers);
